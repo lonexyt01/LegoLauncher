@@ -20,7 +20,12 @@ if [ -n "$IM" ]; then
     $IM ../icon.png -resize ${w}x${w} "$f" || true
   done
 else echo "ImageMagick yo'q - ikonka almashtirilmadi"; fi
-# 5) Lego ranglar temasi (ranglar nomiga bog'liq emas)
-PY=$(command -v python3 || command -v python || true)
-if [ -n "$PY" ]; then "$PY" ../recolor.py "$APP/src/main/res" || true; else echo "Python yo'q - ranglar almashtirilmadi"; fi
+# 5) Lego dizayni: tayyor resurslarni ustiga yozish (ranglar, uslublar, bosh ekran)
+cp -r ../lego-res/. "$APP/src/main/res/"
+# 6) Matnlar: ilova nomi, Wiki -> Modrinth, tugma havolasi
+find "$APP/src/main/res" -name strings.xml | while read f; do
+  sed -i 's#\(<string name="mcl_tab_wiki">\)[^<]*\(</string>\)#\1Modrinth\2#' "$f"
+done
+sed -i 's#\(<string name="app_name">\)[^<]*\(</string>\)#\1LegoLauncher\2#' "$APP/src/main/res/values/strings.xml"
+sed -i 's#URL_HOME = "https://pojavlauncherteam.github.io"#URL_HOME = "https://modrinth.com/mods"#' "$APP/src/main/java/net/kdt/pojavlaunch/Tools.java"
 echo "Rebrand tayyor"
