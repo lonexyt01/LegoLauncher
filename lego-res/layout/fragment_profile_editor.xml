@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadeScrollbars="true"
+        android:scrollbarThumbVertical="@color/minebutton_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <!-- UMUMIY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lego_panel"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView style="@style/LegoSection" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/lego_section_general" />
+
+                <FrameLayout
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_6sdp">
+
+                    <ImageView
+                        android:id="@+id/vprof_editor_profile_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/lego_card"
+                        android:contentDescription="@null"
+                        android:padding="@dimen/profile_editor_image_padding"
+                        tools:src="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/background_icon_edit"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_edit_profile" />
+                </FrameLayout>
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/profiles_profile_name" />
+
+                <EditText
+                    android:id="@+id/vprof_editor_profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_line"
+                    android:hint="@string/unnamed"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="@dimen/padding_heavy"
+                    android:textSize="@dimen/_13ssp" />
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/profiles_profile_version" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/vprof_editor_version_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/padding_medium"
+                        android:background="@drawable/background_line"
+                        android:gravity="center_vertical"
+                        android:hint="@string/version_select_hint"
+                        android:paddingHorizontal="@dimen/padding_heavy"
+                        android:textSize="@dimen/_13ssp" />
+                    <Button
+                        android:id="@+id/vprof_editor_version_button"
+                        style="@style/LegoFieldButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="@dimen/padding_large"
+                        android:text="@string/global_select" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- O'YIN -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/lego_panel"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView style="@style/LegoSection" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/lego_section_game" />
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/default_control" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/vprof_editor_ctrl_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/padding_medium"
+                        android:background="@drawable/background_line"
+                        android:gravity="center_vertical"
+                        android:hint="@string/use_global_default"
+                        android:paddingHorizontal="@dimen/padding_heavy"
+                        android:textSize="@dimen/_13ssp" />
+                    <Button
+                        android:id="@+id/vprof_editor_ctrl_button"
+                        style="@style/LegoFieldButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="@dimen/padding_large"
+                        android:text="@string/global_select" />
+                </LinearLayout>
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/pvc_jvmArgs" />
+
+                <EditText
+                    android:id="@+id/vprof_editor_jre_args"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_line"
+                    android:hint="@string/use_global_default"
+                    android:inputType="text"
+                    android:paddingHorizontal="@dimen/padding_heavy"
+                    android:textSize="@dimen/_13ssp" />
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Custom path" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/vprof_editor_path"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/padding_medium"
+                        android:background="@drawable/background_line"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint=".minecraft"
+                        android:maxLines="2"
+                        android:paddingHorizontal="@dimen/padding_heavy"
+                        android:textSize="@dimen/_13ssp" />
+                    <Button
+                        android:id="@+id/vprof_editor_path_button"
+                        style="@style/LegoFieldButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="@dimen/padding_large"
+                        android:text="@string/global_select" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TEXNIK -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/lego_panel"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <TextView style="@style/LegoSection" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/lego_section_tech" />
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/pedit_java_runtime" />
+
+                <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <Spinner
+                        android:id="@+id/vprof_editor_spinner_runtime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_line"
+                        android:paddingVertical="0px"
+                        tools:paddingVertical="@dimen/_12sdp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_gravity="center_vertical|end"
+                        android:contentDescription="@null"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:rotation="180"
+                        android:src="@drawable/spinner_arrow" />
+                </FrameLayout>
+
+                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="@string/pedit_renderer" />
+
+                <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <Spinner
+                        android:id="@+id/vprof_editor_profile_renderer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_line"
+                        android:dropDownWidth="match_parent"
+                        android:paddingVertical="0px"
+                        tools:paddingVertical="@dimen/_12sdp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_8sdp"
+                        android:layout_gravity="center_vertical|end"
+                        android:contentDescription="@null"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:rotation="180"
+                        android:src="@drawable/spinner_arrow" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_10sdp">
+        <com.kdt.mcgui.MineButton
+            android:id="@+id/vprof_editor_save_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_medium"
+            android:layout_weight="1"
+            android:text="@string/global_save" />
+        <com.kdt.mcgui.MineButton
+            android:id="@+id/vprof_editor_delete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_medium"
+            android:layout_weight="1"
+            android:text="@string/global_delete" />
+    </LinearLayout>
+</LinearLayout>

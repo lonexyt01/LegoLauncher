@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:padding="@dimen/_10sdp">
+
+    <LinearLayout
+        android:id="@+id/login_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/lego_panel"
+        android:orientation="vertical"
+        android:padding="@dimen/_14sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:src="@drawable/lego_brick_red" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:gravity="center"
+            android:text="@string/lego_login_title"
+            android:textColor="@color/lego_yellow"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <com.kdt.mcgui.MineButton
+            android:id="@+id/button_microsoft_authentication"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="Microsoft Account"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp" />
+
+        <com.kdt.mcgui.MineButton
+            android:id="@+id/button_local_authentication"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="Local account"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp" />
+    </LinearLayout>
+</FrameLayout>

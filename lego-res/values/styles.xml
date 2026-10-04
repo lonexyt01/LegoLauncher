@@ -12,6 +12,43 @@
         <item name="colorAccent">@color/lego_yellow</item>
 
         <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="alertDialogTheme">@style/LegoAlertDialog</item>
+        <item name="spinnerStyle">@style/LegoSpinner</item>
+        <item name="colorControlActivated">@color/lego_yellow</item>
+        <item name="colorControlHighlight">#33F5CD2A</item>
+    </style>
+
+    <style name="LegoAlertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/lego_dialog_bg</item>
+        <item name="colorAccent">@color/lego_yellow</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+    </style>
+
+    <style name="LegoSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:popupBackground">@drawable/lego_dialog_bg</item>
+    </style>
+
+    <style name="LegoTitle">
+        <item name="android:textColor">@color/lego_yellow</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="LegoItemTitle">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LegoItemBody">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">@dimen/_9ssp</item>
+    </style>
+
+    <style name="LegoGhostButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/lego_yellow</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="LauncherFragment_Divider">
@@ -28,10 +65,34 @@
         <item name="android:layout_height">@dimen/_52sdp</item>
     </style>
 
+    <style name="LegoSection">
+        <item name="android:textColor">@color/lego_yellow</item>
+        <item name="android:textSize">@dimen/_9ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+
+    <style name="LegoLabel">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">@dimen/_9ssp</item>
+        <item name="android:layout_marginTop">@dimen/_8sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_3sdp</item>
+    </style>
+
+    <style name="LegoFieldButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/lego_small_btn</item>
+        <item name="android:textColor">#1A1A1A</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="ThickDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/_1sdp</item>
-        <item name="android:background">?android:attr/listDivider</item>
+        <item name="android:background">@color/lego_field_border</item>
     </style>
 
     <item name="dimension_tracker" type="id" />

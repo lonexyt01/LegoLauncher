@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lego_mods_title"
+            android:textColor="@color/lego_yellow"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/lego_tab_search"
+            style="@style/LegoFieldButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/lego_tab_search" />
+
+        <Button
+            android:id="@+id/lego_tab_installed"
+            style="@style/LegoFieldButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/lego_tab_installed" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lego_mods_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/_8ssp" />
+
+    <EditText
+        android:id="@+id/lego_mods_query"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@drawable/background_line"
+        android:hint="@string/lego_search_hint"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/padding_heavy"
+        android:textSize="@dimen/_12ssp" />
+
+    <LinearLayout
+        android:id="@+id/lego_mods_filters"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/lego_mods_mcver"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:layout_weight="1"
+            android:background="@drawable/background_line"
+            android:hint="@string/lego_mc_version"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/padding_heavy"
+            android:textSize="@dimen/_12ssp" />
+
+        <Spinner
+            android:id="@+id/lego_mods_loader"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/background_line"
+            android:paddingVertical="0px" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lego_mods_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false" />
+
+        <TextView
+            android:id="@+id/lego_mods_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/lego_mods_progress"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/lego_yellow"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

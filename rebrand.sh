@@ -21,6 +21,7 @@ if [ -n "$IM" ]; then
   done
 else echo "ImageMagick yo'q - ikonka almashtirilmadi"; fi
 # 5) Lego dizayni: tayyor resurslarni ustiga yozish (ranglar, uslublar, bosh ekran)
+rm -f "$APP/src/main/res/drawable/ic_pojav_full.webp"
 cp -r ../lego-res/. "$APP/src/main/res/"
 # 6) Matnlar: ilova nomi, Wiki -> Modrinth, tugma havolasi
 find "$APP/src/main/res" -name strings.xml | while read f; do
@@ -33,11 +34,20 @@ MF="$APP/src/main/AndroidManifest.xml"
 if ! grep -A3 'android:name=".LauncherActivity"' "$MF" | grep -q screenOrientation; then
   sed -i '/android:name="\.LauncherActivity"/a\            android:screenOrientation="sensorLandscape"' "$MF"
 fi
-# 8) Animatsiya (g'ishtlar + Play pulsi)
-mkdir -p "$APP/src/main/java/net/kdt/pojavlaunch"
-cp ../lego-src/LegoAnim.java "$APP/src/main/java/net/kdt/pojavlaunch/LegoAnim.java"
-MM="$APP/src/main/java/net/kdt/pojavlaunch/fragments/MainMenuFragment.java"
-grep -q 'LegoAnim.start' "$MM" || sed -i 's#^\([[:space:]]*\)mNewsButton.setOnLongClickListener(#\1net.kdt.pojavlaunch.LegoAnim.start(view);\n\1mNewsButton.setOnLongClickListener(#' "$MM"
-grep -q 'LegoAnim.start' "$MM" || echo "OGOHLANTIRISH: LegoAnim ulanmadi (MainMenuFragment o'zgargan)"
+# 8) Java: animatsiya, bosh menyu (Discord'siz, Modlar tugmasi bilan), Modrinth mod ekrani
+JAVA="$APP/src/main/java/net/kdt/pojavlaunch"
+cp ../lego-src/LegoAnim.java "$JAVA/LegoAnim.java"
+cp ../lego-src/MainMenuFragment.java "$JAVA/fragments/MainMenuFragment.java"
+cp ../lego-src/LegoModsFragment.java "$JAVA/fragments/LegoModsFragment.java"
+# 9) Discord'ni butunlay o'chirish (ikonka va barcha tillardagi matnlar)
+rm -f "$APP/src/main/res/drawable/ic_discord.xml"
+find "$APP/src/main/res" -name strings.xml | xargs -r sed -i '/mcl_button_discord/d;/name="discord_invite"/d'
+if grep -rqi discord "$APP/src/main" ; then echo "OGOHLANTIRISH: 'discord' hali qolgan:"; grep -rli discord "$APP/src/main"; fi
 grep -q 'sensorLandscape' "$MF" || echo "OGOHLANTIRISH: landscape qulfi qo'yilmadi"
+# 10) Qolgan "Pojav" matnlari va sozlamalar ekrani fonini Lego qilish
+find "$APP/src/main/res" -name strings.xml | xargs -r perl -pi -e 's/(?<!name=")\b[Pp]ojav\w*/LegoLauncher/g; s#pojavlauncherteam\.github\.io#modrinth.com#g'
+find "$APP/src/main/res/layout" -name '*.xml' | xargs -r sed -i 's/PojavLauncher version/LegoLauncher version/'
+sed -i 's/LegoLauncherLauncher/LegoLauncher/g' $(find "$APP/src/main/res" -name strings.xml)
+PF="$APP/src/main/java/net/kdt/pojavlaunch/prefs/screens/LauncherPreferenceFragment.java"
+[ -f "$PF" ] && sed -i 's/getResources().getColor(R.color.background_app)/0x00000000/' "$PF"
 echo "Rebrand tayyor"

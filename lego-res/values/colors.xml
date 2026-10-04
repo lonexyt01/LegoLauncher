@@ -9,14 +9,14 @@
     <color name="lego_yellow">#F5CD2A</color>
     <color name="lego_blue">#0A6FD6</color>
     <color name="lego_green">#18A34A</color>
-    <color name="lego_panel">#C7222222</color>
+    <color name="lego_panel">#D0191C22</color>
     <color name="lego_panel_border">#1FFFFFFF</color>
     <color name="lego_sidebar">#E60C0C0C</color>
-    <color name="lego_card">#242424</color>
+    <color name="lego_card">#1B1E25</color>
     <color name="lego_card_pressed">#3A1011</color>
 
     <color name="minebutton_color">#F5CD2A</color>
-    <color name="background_app">#121212</color>
+    <color name="background_app">#0F1115</color>
     <color name="divider">@color/background_overlay</color>
     <color name="background_overlay">#3A3A3A</color>
     <color name="background_status_bar">#1A0A0B</color>
@@ -24,4 +24,9 @@
 
     <color name="primary_text">#FFFFFF</color>
     <color name="secondary_text">#B2B2B2</color>
+
+    <color name="lego_field">#14171C</color>
+    <color name="lego_field_border">#2E333D</color>
+    <color name="lego_disabled">#3A3F4A</color>
+    <color name="lego_yellow_dark">#B08D0A</color>
 </resources>

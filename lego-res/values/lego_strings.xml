@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lego_title" translatable="false">LEGOLAUNCHER</string>
+    <string name="lego_home">Bosh sahifa</string>
+    <string name="lego_instance">O\'YIN NUSXASI</string>
+    <string name="lego_play">O\'YNASH</string>
+    <string name="lego_mods">Modlar</string>
+    <string name="lego_mods_title">Modlar</string>
+    <string name="lego_tab_search">Qidirish</string>
+    <string name="lego_tab_installed">O\'rnatilgan</string>
+    <string name="lego_search_hint">Mod nomi (Modrinth)</string>
+    <string name="lego_mc_version">Versiya</string>
+    <string name="lego_install">O\'rnatish</string>
+    <string name="lego_installed">Tayyor</string>
+    <string name="lego_delete">O\'chirish</string>
+    <string name="lego_section_general">UMUMIY</string>
+    <string name="lego_section_game">O\'YIN</string>
+    <string name="lego_section_tech">TEXNIK</string>
+    <string name="lego_login_title">LEGOLAUNCHER'GA KIRISH</string>
 </resources>
