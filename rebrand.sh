@@ -28,4 +28,16 @@ find "$APP/src/main/res" -name strings.xml | while read f; do
 done
 sed -i 's#\(<string name="app_name">\)[^<]*\(</string>\)#\1LegoLauncher\2#' "$APP/src/main/res/values/strings.xml"
 sed -i 's#URL_HOME = "https://pojavlauncherteam.github.io"#URL_HOME = "https://modrinth.com/mods"#' "$APP/src/main/java/net/kdt/pojavlaunch/Tools.java"
+# 7) Landscape (yoyilgan) ekran: LauncherActivity'ni gorizontalga qulflash
+MF="$APP/src/main/AndroidManifest.xml"
+if ! grep -A3 'android:name=".LauncherActivity"' "$MF" | grep -q screenOrientation; then
+  sed -i '/android:name="\.LauncherActivity"/a\            android:screenOrientation="sensorLandscape"' "$MF"
+fi
+# 8) Animatsiya (g'ishtlar + Play pulsi)
+mkdir -p "$APP/src/main/java/net/kdt/pojavlaunch"
+cp ../lego-src/LegoAnim.java "$APP/src/main/java/net/kdt/pojavlaunch/LegoAnim.java"
+MM="$APP/src/main/java/net/kdt/pojavlaunch/fragments/MainMenuFragment.java"
+grep -q 'LegoAnim.start' "$MM" || sed -i 's#^\([[:space:]]*\)mNewsButton.setOnLongClickListener(#\1net.kdt.pojavlaunch.LegoAnim.start(view);\n\1mNewsButton.setOnLongClickListener(#' "$MM"
+grep -q 'LegoAnim.start' "$MM" || echo "OGOHLANTIRISH: LegoAnim ulanmadi (MainMenuFragment o'zgargan)"
+grep -q 'sensorLandscape' "$MF" || echo "OGOHLANTIRISH: landscape qulfi qo'yilmadi"
 echo "Rebrand tayyor"

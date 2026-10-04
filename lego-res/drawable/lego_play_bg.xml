@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <corners android:radius="@dimen/_8sdp" />
-            <solid android:color="@color/lego_red_dark" />
-            <stroke android:width="@dimen/_2sdp" android:color="@color/lego_yellow" />
-        </shape>
+        <layer-list>
+            <item><shape android:shape="rectangle"><corners android:radius="@dimen/_10sdp" />
+                <solid android:color="#B08D0A" /></shape></item>
+            <item android:top="@dimen/_3sdp"><shape android:shape="rectangle"><corners android:radius="@dimen/_10sdp" />
+                <gradient android:angle="270" android:startColor="#F5CD2A" android:endColor="#E0B820" /></shape></item>
+        </layer-list>
     </item>
     <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="@dimen/_8sdp" />
-            <solid android:color="@color/lego_red" />
-            <stroke android:width="@dimen/_2sdp" android:color="@color/lego_yellow" />
-        </shape>
+        <layer-list>
+            <item><shape android:shape="rectangle"><corners android:radius="@dimen/_10sdp" />
+                <solid android:color="#B08D0A" /></shape></item>
+            <item android:bottom="@dimen/_3sdp"><shape android:shape="rectangle"><corners android:radius="@dimen/_10sdp" />
+                <gradient android:angle="270" android:startColor="#FFE066" android:endColor="#F5CD2A" /></shape></item>
+        </layer-list>
     </item>
 </selector>

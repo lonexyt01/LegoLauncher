@@ -6,10 +6,11 @@ A) GitHub: shu papkadagi hamma narsani repoga yuklang (git add . && git commit &
    Actions -> "Build LegoLauncher" -> Run workflow -> "LegoLauncher-apk" artifact.
 B) Windows: build.bat   C) Linux/macOS: build.sh
 
-Dizayn: lego-res/ papkasi Pojav resurslari ustiga yoziladi (rebrand.sh qiladi):
-  values/colors.xml, styles.xml  - qizil/sariq Lego ranglar
-  layout/ va layout-land/fragment_launcher.xml - yangi bosh ekran (sarlavha, kartali tugmalar, qizil Play)
-  drawable/lego_*.xml - karta, sarlavha, Play tugmasi fonlari
-Wiki tugmasi -> Modrinth (modrinth.com/mods). Ranglarni o'zgartirish: lego-res/values/colors.xml.
+Dizayn (desktop LegoLauncher uslubida, GORIZONTAL/landscape):
+  lego-res/    - Pojav resurslari ustiga yoziladi: ranglar, uslublar, chap panel (sidebar) + bosh sahifa
+                 (O'YIN NUSXASI kartasi, sariq O'YNASH tugmasi, animatsiyali g'isht sahnasi, 3x2 tugmalar)
+  lego-src/LegoAnim.java - g'ishtlar va O'YNASH tugmasi animatsiyasi
+  rebrand.sh   - hammasini avtomatik qo'llaydi, LauncherActivity'ni sensorLandscape qiladi
+Ranglar: lego-res/values/colors.xml. Wiki tugmasi -> Modrinth.
 
-Eslatma: Pojav'ning o'zi (o'yin ishga tushirish) o'zgarmagan. Litsenziya: LGPL-3.0 - kodni ochiq saqlang.
+Eslatma: o'yinni ishga tushiruvchi qism Pojav'niki. Litsenziya: LGPL-3.0 - kodni ochiq saqlang.

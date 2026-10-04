@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item><shape android:shape="rectangle"><solid android:color="@color/lego_sidebar" /></shape></item>
+    <item android:gravity="end"><shape android:shape="rectangle">
+        <size android:width="@dimen/_1sdp" /><solid android:color="@color/lego_panel_border" />
+    </shape></item>
+</layer-list>

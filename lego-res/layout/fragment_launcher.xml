@@ -1,173 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_menu_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app">
+    android:fillViewport="true"
+    android:background="@android:color/transparent">
 
-    <TextView
-        android:id="@+id/lego_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
-        android:background="@drawable/lego_header_bg"
-        android:gravity="center"
-        android:letterSpacing="0.2"
-        android:text="@string/lego_title"
-        android:textColor="@color/lego_yellow"
-        android:textSize="@dimen/_12ssp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
 
-    <View
-        android:id="@+id/lego_title_line"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_2sdp"
-        android:background="@color/lego_yellow"
-        app:layout_constraintTop_toBottomOf="@id/lego_title" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lego_split"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/lego_title_line"
-        app:layout_constraintBottom_toTopOf="@id/mc_version_spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lego_g1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3333" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lego_g2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6667" />
+
+        <TextView
+            android:id="@+id/lego_hello"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_8sdp">
+            android:text="Bosh sahifa"
+            android:textColor="@color/lego_yellow"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/center_guideline"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
+        <!-- Hero card -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lego_hero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/lego_panel"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/lego_hello"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lego_split">
 
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/news_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:drawableStart="@drawable/ic_menu_news"
-                android:text="@string/mcl_tab_wiki"
+            <TextView
+                android:id="@+id/lego_inst_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="O\'YIN NUSXASI"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_8ssp"
+                android:letterSpacing="0.1"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.kdt.mcgui.mcVersionSpinner
+                android:id="@+id/mc_version_spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_44sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/spinner_arrow"
+                app:drawableEndSize="@dimen/padding_heavy"
+                app:drawableStartIntegerScaling="true"
+                app:drawableStartSize="@dimen/_36sdp"
+                app:drawableEndPadding="@dimen/_1sdp"
+                app:layout_constraintTop_toBottomOf="@id/lego_inst_label"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/center_guideline" />
+                app:layout_constraintEnd_toStartOf="@+id/edit_profile_button" />
 
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/discord_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginStart="@dimen/_2sdp"
-                android:drawableStart="@drawable/ic_discord"
-                android:text="@string/mcl_button_discord"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/center_guideline"
+            <ImageButton
+                android:id="@+id/edit_profile_button"
+                android:layout_width="@dimen/_44sdp"
+                android:layout_height="@dimen/_44sdp"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_edit_profile"
+                app:layout_constraintTop_toTopOf="@id/mc_version_spinner"
+                app:layout_constraintBottom_toBottomOf="@id/mc_version_spinner"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/custom_control_button"
-                style="@style/LauncherMenuButton.Universal"
+            <com.kdt.mcgui.MineButton
+                android:id="@+id/play_button"
                 android:layout_width="0dp"
+                android:layout_height="@dimen/_48sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:drawableStart="@drawable/ic_menu_custom_controls"
-                android:drawablePadding="@dimen/_8sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:text="@string/mcl_option_customcontrol"
+                android:background="@drawable/lego_play_bg"
+                android:text="O\'YNASH"
+                android:textAllCaps="true"
+                android:textColor="#1A1A1A"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                app:layout_constraintTop_toBottomOf="@id/mc_version_spinner"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/news_button" />
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/install_jar_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:drawableStart="@drawable/ic_menu_install_jar"
-                android:drawablePadding="@dimen/_8sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:text="@string/main_install_jar_file"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/custom_control_button" />
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/share_logs_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:drawableStart="@android:drawable/ic_menu_share"
-                android:drawablePadding="@dimen/_8sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:text="@string/main_share_logs"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/install_jar_button" />
-            <com.kdt.mcgui.LauncherMenuButton
-                android:id="@+id/open_files_button"
-                style="@style/LauncherMenuButton.Universal"
-                android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:drawableStart="@drawable/ic_folder"
-                android:drawablePadding="@dimen/_8sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:text="@string/mcl_button_open_directory"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/share_logs_button" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
-    <com.kdt.mcgui.mcVersionSpinner
-        android:id="@+id/mc_version_spinner"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_52sdp"
-        android:background="@android:color/transparent"
-        android:drawableEnd="@drawable/spinner_arrow"
-        app:drawableEndSize="@dimen/padding_heavy"
-        app:drawableStartIntegerScaling="true"
-        app:drawableStartSize="@dimen/_36sdp"
-        app:drawableEndPadding="@dimen/_1sdp"
-        app:layout_constraintBottom_toTopOf="@id/play_button"
-        app:layout_constraintEnd_toStartOf="@+id/edit_profile_button"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Scene card (animated bricks) -->
+        <FrameLayout
+            android:id="@+id/lego_scene"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:background="@drawable/lego_scene_bg"
+            android:clipChildren="false"
+            app:layout_constraintTop_toTopOf="@id/lego_hero"
+            app:layout_constraintBottom_toBottomOf="@id/lego_hero"
+            app:layout_constraintStart_toStartOf="@id/lego_split"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageButton
-        android:id="@+id/edit_profile_button"
-        android:layout_width="@dimen/_52sdp"
-        android:layout_height="@dimen/_52sdp"
-        android:background="?android:attr/selectableItemBackground"
-        android:src="@drawable/ic_edit_profile"
-        app:layout_constraintBottom_toBottomOf="@+id/mc_version_spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mc_version_spinner" />
+            <ImageView
+                android:id="@+id/lego_brick4"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/lego_brick_green" />
 
-    <!-- cosmetic -->
-    <View
-        android:id="@+id/_background_display_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/background_bottom_bar"
-        android:translationZ="-1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/mc_version_spinner" />
+            <ImageView
+                android:id="@+id/lego_brick1"
+                android:layout_width="@dimen/_56sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/lego_brick_red" />
 
-    <com.kdt.mcgui.MineButton
-        android:id="@+id/play_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_62sdp"
-        android:layout_marginHorizontal="@dimen/_17sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:background="@drawable/lego_play_bg"
-        android:textAllCaps="true"
-        android:textColor="@color/lego_yellow"
-        android:textStyle="bold"
-        android:text="@string/main_play"
-        app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageView
+                android:id="@+id/lego_brick2"
+                android:layout_width="@dimen/_56sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_44sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/lego_brick_yellow" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/lego_brick3"
+                android:layout_width="@dimen/_56sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_76sdp"
+                android:contentDescription="@null"
+                android:src="@drawable/lego_brick_blue" />
+        </FrameLayout>
+
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/news_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@drawable/ic_menu_news"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/mcl_tab_wiki"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/lego_hero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lego_g1" />
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/discord_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@drawable/ic_discord"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/mcl_button_discord"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/lego_hero"
+            app:layout_constraintStart_toStartOf="@id/lego_g1"
+            app:layout_constraintEnd_toEndOf="@id/lego_g2" />
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/custom_control_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@drawable/ic_menu_custom_controls"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/mcl_option_customcontrol"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/lego_hero"
+            app:layout_constraintStart_toStartOf="@id/lego_g2"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/install_jar_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@drawable/ic_menu_install_jar"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/main_install_jar_file"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/news_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lego_g1" />
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/share_logs_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@android:drawable/ic_menu_share"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/main_share_logs"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/news_button"
+            app:layout_constraintStart_toStartOf="@id/lego_g1"
+            app:layout_constraintEnd_toEndOf="@id/lego_g2" />
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/open_files_button"
+            style="@style/LauncherMenuButton.Universal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawableStart="@drawable/ic_folder"
+            android:drawablePadding="@dimen/_6sdp"
+            android:gravity="center_vertical|start"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="@string/mcl_button_open_directory"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@id/news_button"
+            app:layout_constraintStart_toStartOf="@id/lego_g2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

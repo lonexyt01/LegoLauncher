@@ -7,6 +7,11 @@
     <color name="lego_red">#D01012</color>
     <color name="lego_red_dark">#7D0809</color>
     <color name="lego_yellow">#F5CD2A</color>
+    <color name="lego_blue">#0A6FD6</color>
+    <color name="lego_green">#18A34A</color>
+    <color name="lego_panel">#C7222222</color>
+    <color name="lego_panel_border">#1FFFFFFF</color>
+    <color name="lego_sidebar">#E60C0C0C</color>
     <color name="lego_card">#242424</color>
     <color name="lego_card_pressed">#3A1011</color>
 
