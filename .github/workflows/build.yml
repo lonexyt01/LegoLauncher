@@ -1,0 +1,31 @@
+name: Build LegoLauncher
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Upstream (PojavLauncherTeam/PojavLauncher yoki ZalithLauncher/ZalithLauncher)"
+        default: "PojavLauncherTeam/PojavLauncher"
+      ref:
+        description: "Branch"
+        default: "v3_openjdk"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repo || 'PojavLauncherTeam/PojavLauncher' }}
+          ref: ${{ inputs.ref || 'v3_openjdk' }}
+          path: upstream
+          submodules: recursive
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: android-actions/setup-android@v3
+      - run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - run: bash rebrand.sh upstream
+      - run: cd upstream && chmod +x gradlew && ./gradlew assembleDebug --no-daemon --stacktrace
+      - run: mkdir out && find upstream -path '*build/outputs/apk/debug/*.apk' -exec cp {} out/LegoLauncher.apk \;
+      - uses: actions/upload-artifact@v4
+        with: { name: LegoLauncher-apk, path: out/LegoLauncher.apk }
