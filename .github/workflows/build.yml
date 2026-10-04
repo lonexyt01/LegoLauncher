@@ -22,7 +22,8 @@ jobs:
           submodules: recursive
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 17 }
-      - uses: android-actions/setup-android@v3
+      - name: Accept Android licenses (SDK runner'da tayyor)
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
       - run: sudo apt-get update && sudo apt-get install -y imagemagick
       - run: bash rebrand.sh upstream
       - run: cd upstream && chmod +x gradlew && ./gradlew assembleDebug --no-daemon --stacktrace
