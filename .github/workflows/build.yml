@@ -30,3 +30,14 @@ jobs:
       - run: mkdir out && find upstream -path '*build/outputs/apk/debug/*.apk' -exec cp {} out/LegoLauncher.apk \;
       - uses: actions/upload-artifact@v4
         with: { name: LegoLauncher-apk, path: out/LegoLauncher.apk }
+      - name: Export UI files (dizayn uchun)
+        if: always()
+        run: |
+          cd upstream
+          find app_pojavlauncher/src/main/res -name '*.xml' -not -path '*/values-*' | zip -q ../ui-files.zip -@
+          zip -q ../ui-files.zip app_pojavlauncher/src/main/AndroidManifest.xml app_pojavlauncher/build.gradle
+          find app_pojavlauncher/src/main/java -name '*.java' | grep -E 'LauncherActivity|/fragments/|Tools.java' | zip -q ../ui-files.zip -@
+          ls -la ../ui-files.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ui-files, path: ui-files.zip }

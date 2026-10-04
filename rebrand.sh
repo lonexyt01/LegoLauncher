@@ -20,4 +20,7 @@ if [ -n "$IM" ]; then
     $IM ../icon.png -resize ${w}x${w} "$f" || true
   done
 else echo "ImageMagick yo'q - ikonka almashtirilmadi"; fi
+# 5) Lego ranglar temasi (ranglar nomiga bog'liq emas)
+PY=$(command -v python3 || command -v python || true)
+if [ -n "$PY" ]; then "$PY" ../recolor.py "$APP/src/main/res" || true; else echo "Python yo'q - ranglar almashtirilmadi"; fi
 echo "Rebrand tayyor"
