@@ -56,7 +56,7 @@
                         android:src="@drawable/ic_edit_profile" />
                 </FrameLayout>
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/profiles_profile_name" />
 
                 <EditText
@@ -69,7 +69,7 @@
                     android:paddingHorizontal="@dimen/padding_heavy"
                     android:textSize="@dimen/_13ssp" />
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/profiles_profile_version" />
 
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                 <TextView style="@style/LegoSection" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/lego_section_game" />
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/default_control" />
 
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                         android:text="@string/global_select" />
                 </LinearLayout>
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/pvc_jvmArgs" />
 
                 <EditText
@@ -145,7 +145,7 @@
                     android:paddingHorizontal="@dimen/padding_heavy"
                     android:textSize="@dimen/_13ssp" />
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="Custom path" />
 
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                 <TextView style="@style/LegoSection" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/lego_section_tech" />
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/pedit_java_runtime" />
 
                 <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
@@ -206,7 +206,7 @@
                         android:src="@drawable/spinner_arrow" />
                 </FrameLayout>
 
-                <TextView style="@style/LegoLabel" android:layout_width="wrap_content"
+                <TextView style="@style/LegoLabel" android:layout_marginTop="@dimen/_8sdp" android:layout_marginBottom="@dimen/_3sdp" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="@string/pedit_renderer" />
 
                 <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
