@@ -3,47 +3,52 @@ package net.kdt.pojavlaunch;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.graphics.Outline;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/** LegoLauncher: bosh ekrandagi g'ishtlar va Play tugmasi animatsiyasi. */
+/** LegoLauncher: bosh ekran animatsiyalari va yumaloq kesish yordamchisi. */
 public final class LegoAnim {
     private LegoAnim() {}
 
-    private static ObjectAnimator loop(View v, String prop, float from, float to, long dur, long delay) {
+    /** View'ni yumaloq burchak bilan kesadi (rasmlar uchun). */
+    public static void round(View v, float radiusPx) {
+        v.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radiusPx);
+            }
+        });
+        v.setClipToOutline(true);
+    }
+
+    private static ObjectAnimator loop(View v, String prop, float from, float to, long dur, boolean smooth) {
         ObjectAnimator a = ObjectAnimator.ofFloat(v, prop, from, to);
         a.setDuration(dur);
-        a.setStartDelay(delay);
         a.setRepeatCount(ValueAnimator.INFINITE);
         a.setRepeatMode(ValueAnimator.REVERSE);
-        a.setInterpolator(new AccelerateDecelerateInterpolator());
+        a.setInterpolator(smooth ? new AccelerateDecelerateInterpolator() : new LinearInterpolator());
         return a;
     }
 
+    /** Asosiy rasm sekin siljiydi/kattalashadi, O'YNASH tugmasi "nafas oladi". */
     public static void start(View root) {
-        final List<Animator> running = new ArrayList<>();
-        float d = root.getResources().getDisplayMetrics().density;
-        int[] ids = {R.id.lego_brick1, R.id.lego_brick2, R.id.lego_brick3, R.id.lego_brick4};
-        for (int i = 0; i < ids.length; i++) {
-            View v = root.findViewById(ids[i]);
-            if (v == null) continue;
-            running.add(loop(v, "translationY", 0f, -(6 + i * 2) * d, 1600 + i * 350L, -i * 400L));
-            running.add(loop(v, "rotation", -2f, 2f, 1800 + i * 300L, 0));
+        View hero = root.findViewById(R.id.lego_hero_image);
+        if (hero != null) {
+            hero.setScaleX(1.12f);
+            hero.setScaleY(1.12f);
+            Animator pan = loop(hero, "translationX", -18f, 18f, 14000, true);
+            pan.start();
+            Animator zoom = loop(hero, "scaleX", 1.12f, 1.2f, 14000, true);
+            zoom.start();
+            loop(hero, "scaleY", 1.12f, 1.2f, 14000, true).start();
         }
         View play = root.findViewById(R.id.play_button);
         if (play != null) {
-            running.add(loop(play, "scaleX", 1f, 1.025f, 1100, 0));
-            running.add(loop(play, "scaleY", 1f, 1.025f, 1100, 0));
+            loop(play, "scaleX", 1f, 1.025f, 1100, true).start();
+            loop(play, "scaleY", 1f, 1.025f, 1100, true).start();
         }
-        for (Animator a : running) a.start();
-        root.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
-            @Override public void onViewAttachedToWindow(View v) {}
-            @Override public void onViewDetachedFromWindow(View v) {
-                for (Animator a : running) a.cancel();
-            }
-        });
     }
 }

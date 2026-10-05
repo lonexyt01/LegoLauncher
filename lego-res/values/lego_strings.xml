@@ -17,4 +17,10 @@
     <string name="lego_section_game">O\'YIN</string>
     <string name="lego_section_tech">TEXNIK</string>
     <string name="lego_login_title">LEGOLAUNCHER'GA KIRISH</string>
+    <string name="lego_selected">TANLANGAN VERSIYA</string>
+    <string name="lego_versions">O\'RNATILGAN VERSIYALAR</string>
+    <string name="lego_new_profile">Yangi versiya qo\'shish</string>
+    <string name="lego_no_profile">Versiya yo\'q</string>
+    <string name="lego_latest_release">Eng so\'nggi release</string>
+    <string name="lego_latest_snapshot">Eng so\'nggi snapshot</string>
 </resources>

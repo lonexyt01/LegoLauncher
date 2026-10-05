@@ -25,9 +25,20 @@ YANGILIKLAR (v3) - Pojav ko'rinishi qolmadi
   * Barcha tillardagi "Pojav..." matnlari LegoLauncher ga o'zgartirildi.
   * tools/gen_ui.py - qolgan Pojav layoutlarini Lego uslubiga avtomatik o'tkazadi (id'lar saqlanadi).
 
+YANGILIKLAR (v4) - o'zimizning dizayn hamma joyda
+  * BOSH SAHIFA: yuklangan (o'rnatilgan) versiyalar ro'yxati, har biri overworld rasmi bilan.
+    Versiyani tanlang -> katta rasm va "O'YNASH" tugmasi. Uzoq bosish = profilni tahrirlash,
+    ro'yxat oxirida "Yangi versiya qo'shish". Rasm loader'ga qarab tanlanadi
+    (Fabric = o'rmon, Forge = tog', Quilt = qor, OptiFine = sahro, oddiy = tekislik/aralash).
+  * Ilova foni: qoraytirilgan overworld manzarasi (barcha launcher ekranlari ustida).
+  * Overworld rasmlari ORIGINAL piksel-art (tools/gen_art.py bilan chiziladi, Mojang rasmlari emas):
+    lego-res/drawable-nodpi/lego_world_*.png. Xohlasangiz o'z rasmlaringiz bilan almashtiring (1280x720 PNG).
+  * Sozlamalar ro'yxati: har bir band karta, bo'lim sarlavhalari sariq.
+  * Boshqaruv tugmasi tahriri, tezkor sozlamalar, tezlik, import oynalari: yumaloq maydonlar, sariq sarlavhalar.
+
 Fayllar:
   lego-res/    - Pojav resurslari ustiga yoziladi (ranglar, uslublar, tugmalar, bosh sahifa, profil, modlar ekrani)
-  lego-src/    - LegoAnim.java (animatsiya), MainMenuFragment.java (Discord'siz menyu),
+  lego-src/    - LegoAnim.java (animatsiya), MainMenuFragment.java (versiyalar ro'yxati + O'YNASH),
                  LegoModsFragment.java (Modrinth mod ekrani)
   rebrand.sh   - hammasini avtomatik qo'llaydi (nom, applicationId, ikonka, dizayn, Discord'ni o'chirish)
 Ranglar: lego-res/values/colors.xml.
